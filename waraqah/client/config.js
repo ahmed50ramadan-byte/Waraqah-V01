@@ -2,4 +2,4 @@
 // أثناء التجربة المحلية اتركه كما هو (يفترض أن السيرفر يعمل على المنفذ 5000).
 // ملاحظة: مستخدمين var عمدًا بدل const/let، عشان لو الملف اتنفذ مرتين بالغلط
 // (بسبب إضافة متصفح أو أداة Live Reload)، السطر ده منيجيش خطأ "already declared".
-var API_BASE_URL = 'waraqah-v01-git-main-waraqah.vercel.app';
+var API_BASE_URL = 'https://waraqah-v01.vercel.app/';
