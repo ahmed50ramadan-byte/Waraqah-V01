@@ -1,5 +1,5 @@
 require('dotenv').config();
-const API_BASE_URL = 'https://waraqah-v01.vercel.app/api';
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
