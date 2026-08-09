@@ -888,7 +888,7 @@ async function openArticlePublicView(id) {
                 ? '🏆 محتوى ذهبي - لمشتركي العضوية الذهبية فقط'
                 : 'محتوى حصري لمشتركي ورقة';
             document.getElementById('pub-article-locked-text').innerText = isGoldLock
-                ? 'هذا المقال متاح فقط لأصحاب العضوية الذهبية المدفوعة.'
+                ? 'هذا المقال متاح فقط لأصحاب العضوية الذهبية .'
                 : 'سجّل كقارئ لمتابعة هذا المقال وكل الحصريات القادمة.';
             document.getElementById('pub-article-locked-btn').innerText = isGoldLock && hasReaderToken
                 ? 'تواصل معنا للاشتراك في العضوية الذهبية'
