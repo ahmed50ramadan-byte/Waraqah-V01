@@ -15,7 +15,7 @@
                 <button id="mobile-nav-toggle" onclick="toggleMobileMainNav()" aria-label="فتح القوائم" class="text-white text-2xl leading-none p-1">☰</button>
                 <div class="cursor-pointer select-none logo-block" onclick="goHome()" title="الصفحة الرئيسية">
                     <h1 class="font-logo text-4xl font-bold tracking-wide text-amber-500 leading-none">ورقة</h1>
-                    <p class="text-xs text-slate-400 font- logo-tagline">من صفحات الأدب</p>
+                    <p class="text-xs text-slate-400 font-body logo-tagline">من صفحات الأدب</p>
                 </div>
                 <span id="user-status-badge" class="bg-amber-600 text-white px-2 py-0.5 rounded text-xs font-bold font-body">زائر</span>
                 <span id="user-display-name" class="hidden sm:block text-xs text-slate-300 font-semibold font-body">غير مسجل</span>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <!-- بانر الإعلانات -->
+                <!-- بانر الإعلانات: جزء عادي من الصفحة، يتحرك مع السكرول زي أي محتوى -->
                 <div id="ads-banner-home" class="ads-banner-container"></div>
 
                 <div>
@@ -119,10 +119,10 @@
             <div id="about-us-section" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
                 <h2 class="font-heading text-2xl font-bold text-slate-900 border-b pb-3">من نحن</h2>
                 <p class="article-body text-sm leading-loose text-slate-700">
-                    <span class="font-bold text-amber-700">ورقة</span> مؤسسة أدبية عربية مستقلة، تؤمن بأن الكلمة الجيدة قادرة على أن تترك أثرًا يدوم.
+                    <span class="font-bold text-amber-700">ورقة</span> مجلة أدبية عربية مستقلة، تؤمن بأن الكلمة الجيدة قادرة على أن تترك أثرًا يدوم.
                 </p>
                 <p class="article-body text-sm leading-loose text-slate-700">
-                    نسعى إلى تقديم محتوى أدبي رصين يجمع بين الأصالة والحداثة، ويمنح مساحة للأصوات الإبداعية الجديدة إلى جانب الاحتفاء بأعمال الكُتَّاب الراسخين.
+                    نسعى إلى تقديم محتوى أدبي رصين يجمع بين الأصالة والحداثة، ويمنح مساحة للأصوات الإبداعية الجديدة إلى جانب الاحتفاء بأعمال الكتّاب الراسخين.
                 </p>
                 <div class="pt-3 border-t space-y-3">
                     <h3 class="font-heading text-xl font-bold text-slate-900">فريق عمل ورقة</h3>
@@ -189,7 +189,7 @@
                 </div>
             </div>
 
-            <!-- إعدادات الموقع -->
+            <!-- إعدادات الموقع: روابط السوشيال ميديا (المالك/رئيس التحرير/IT فقط) -->
             <div id="site-settings-panel" class="hidden bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-xs space-y-4 font-body">
                 <h3 class="font-heading font-bold text-slate-900 text-lg border-b pb-2">روابط السوشيال ميديا</h3>
                 <p class="text-[11px] text-slate-400">تظهر أسفل كل صفحة. ضيف أي عدد ومنصات تحب (فيسبوك، تيك توك، يوتيوب، واتساب، موقعك الشخصي...).</p>
@@ -203,7 +203,7 @@
                 <div id="social-links-admin-list" class="space-y-2"></div>
             </div>
 
-            <!-- إدارة الإعلانات -->
+            <!-- إدارة الإعلانات (المالك/رئيس التحرير/IT فقط) -->
             <div id="ads-admin-panel" class="hidden bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-xs space-y-4 font-body">
                 <h3 class="font-heading font-bold text-slate-900 text-lg border-b pb-2">إدارة الإعلانات</h3>
                 <p class="text-[11px] text-slate-400">الصورة والنص والرابط كلهم اختياريين، بس لازم واحد منهم على الأقل. تقدر تضيف أكتر من إعلان.</p>
@@ -218,7 +218,7 @@
                 <div id="ads-admin-list" class="space-y-2 max-h-72 overflow-y-auto"></div>
             </div>
 
-            <!-- إدارة العضوية الذهبية -->
+            <!-- إدارة العضوية الذهبية (المالك/رئيس التحرير/IT فقط) -->
             <div id="gold-membership-panel" class="hidden bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-xs space-y-4 font-body">
                 <h3 class="font-heading font-bold text-slate-900 text-lg border-b pb-2">إدارة العضوية الذهبية</h3>
                 <p class="text-[11px] text-slate-400">منح/سحب العضوية يدويًا لحد ما يتم ربط بوابة دفع فعلية. ابحث بالاسم أو البريد الإلكتروني.</p>
@@ -413,12 +413,249 @@
                     <button onclick="handleShareArticle('facebook')" class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-2 rounded-full font-bold transition">فيسبوك</button>
                     <button onclick="handleShareArticle('twitter')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-2 rounded-full font-bold transition">تويتر/X</button>
                     <button onclick="handleShareArticle('whatsapp')" class="text-xs bg-green-50 hover:bg-green-100 text-green-700 px-3 py-2 rounded-full font-bold transition">واتساب</button>
+                    <button onclick="handleShareArticle('copy')" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-700 px-3 py-2 rounded-full font-bold transition">نسخ الرابط</button>
+                </div>
+
+                <!-- Comments -->
+                <div class="border-t mt-6 pt-4 space-y-3">
+                    <h3 class="font-heading font-bold text-lg text-slate-900">التعليقات (<span id="pub-article-comments-count">0</span>)</h3>
+
+                    <div id="reader-comment-form-wrap" class="hidden space-y-2">
+                        <textarea id="reader-comment-input" rows="2" placeholder="شارك رأيك الأدبي في المقال..." class="w-full p-2.5 border rounded text-sm article-body"></textarea>
+                        <button onclick="submitComment()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 px-5 rounded transition text-sm">إرسال التعليق</button>
+                        <p class="text-[10px] text-slate-400">تكسب +2 ورق عن كل تعليق (بحد أقصى تعليقين يوميًا).</p>
+                    </div>
+                    <p id="reader-comment-login-hint" class="hidden text-xs text-amber-700">سجّل دخولك كقارئ عشان تقدر تكتب تعليق.</p>
+
+                    <div id="pub-article-comments-list" class="space-y-3 pt-2"></div>
+                </div>
+
+                <div id="ads-banner-article" class="ads-banner-container mt-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rewards Store (متجر الهدايا) -->
+    <div id="rewardsStoreView" class="hidden fixed inset-0 bg-slate-50 z-[72] overflow-y-auto font-body">
+        <div class="bg-slate-900 border-b border-amber-600/30 sticky top-0 z-10">
+            <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+                <button onclick="closeRewardsStore()" class="flex items-center gap-2 text-slate-200 hover:text-amber-500 transition text-sm font-semibold py-2">
+                    <span>→</span> <span>رجوع</span>
+                </button>
+                <div class="cursor-pointer select-none logo-block text-left" onclick="goHome()">
+                    <h2 class="font-logo text-4xl font-bold tracking-wide text-amber-500 leading-none">ورقة</h2>
+                    <p class="text-xs text-slate-400 font-body logo-tagline">من صفحات الأدب</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 py-8 space-y-8">
+
+            <!-- ملخص رصيد ورتبة القارئ -->
+            <div class="bg-white rounded-xl border border-amber-200 p-6 space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                        <p class="text-xs text-slate-400">رصيدك الحالي</p>
+                        <p class="font-heading text-3xl font-bold text-amber-600">🪙 <span id="rewards-my-balance">0</span> ورق</p>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400">رتبتك الحالية</p>
+                        <p class="font-heading text-xl font-bold text-slate-900" id="rewards-my-rank">العابر</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[11px] text-slate-500 mb-1">
+                        <span id="rewards-next-rank-label">الرتبة التالية</span>
+                        <span id="rewards-points-to-next"></span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div id="rewards-rank-progress-bar" class="bg-amber-500 h-2.5 rounded-full transition-all" style="width:0%"></div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t">
+                    <p class="text-xs font-bold text-slate-600 mb-1">كود دعوة الأصدقاء الخاص بك (كل صديق ينضم بيه = 50 ورق لك):</p>
+                    <div class="flex items-center gap-2">
+                        <code id="my-referral-code" class="bg-slate-100 px-3 py-1.5 rounded text-sm font-bold text-amber-700">---</code>
+                        <button onclick="copyReferralCode()" class="text-xs bg-slate-800 text-white px-3 py-1.5 rounded font-bold hover:bg-slate-900 transition">نسخ الكود</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الاشتراك في العضوية الذهبية -->
+            <div id="gold-subscription-section" class="bg-gradient-to-l from-amber-50 to-white rounded-xl border-2 border-amber-400 p-6 space-y-4">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <h2 class="font-heading text-2xl font-bold text-amber-800">🏆 العضوية الذهبية</h2>
+                    <span id="gold-status-badge" class="hidden bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">مفعّلة ✓</span>
+                </div>
+                <p id="gold-price-text" class="text-sm text-slate-600">وصول فوري لكل المحتوى الذهبي الحصري + خصم 10% على متجر الهدايا.</p>
+
+                <div id="gold-payment-options" class="space-y-3">
+                    <button onclick="handlePayWithCard()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-lg transition text-sm flex items-center justify-center gap-2">
+                        💳 الدفع بالفيزا / الماستركارد
+                    </button>
+
+                    <div class="bg-white border rounded-lg p-3 space-y-2">
+                        <p class="text-xs font-bold text-slate-600">أو ادفع بمحفظة إلكترونية:</p>
+                        <select id="wallet-provider-select" class="w-full p-2 border rounded text-sm bg-white">
+                            <option value="">اختر مزوّد المحفظة</option>
+                            <option value="vodafone">فودافون كاش</option>
+                            <option value="etisalat">اتصالات كاش</option>
+                            <option value="orange">أورانج موني</option>
+                            <option value="we">وي باي</option>
+                        </select>
+                        <input type="tel" id="wallet-number-input" placeholder="رقم المحفظة (01xxxxxxxxx)" class="w-full p-2 border rounded text-sm">
+                        <button onclick="handlePayWithWallet()" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-2.5 rounded-lg transition text-sm">تأكيد الدفع بالمحفظة</button>
+                    </div>
+                </div>
+
+                <p id="gold-payment-status" class="hidden text-xs font-semibold"></p>
+            </div>
+
+            <!-- كتالوج الهدايا -->
+            <div>
+                <h2 class="font-heading text-2xl font-bold text-slate-900 border-b pb-3 mb-4">متجر الهدايا</h2>
+                <div id="rewards-catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+            </div>
+
+            <!-- طلبات الاستبدال السابقة -->
+            <div>
+                <h2 class="font-heading text-2xl font-bold text-slate-900 border-b pb-3 mb-4">طلباتي السابقة</h2>
+                <div id="my-redemptions-list" class="space-y-2"></div>
+            </div>
+
+            <!-- لوحة إدارة الهدايا (SETTINGS_MANAGER_ROLES فقط) -->
+            <div id="rewards-admin-panel" class="hidden bg-white rounded-xl border border-slate-200 p-6 space-y-4">
+                <h2 class="font-heading text-xl font-bold text-slate-900 border-b pb-3">إدارة كتالوج الهدايا (لوحة تحكم)</h2>
+                <form id="add-reward-form" onsubmit="handleAddRewardItem(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <input type="text" id="reward-title" placeholder="اسم الهدية" required class="p-2 border rounded">
+                    <input type="number" id="reward-points" placeholder="النقاط المطلوبة" required min="0" class="p-2 border rounded">
+                    <select id="reward-tier" class="p-2 border rounded bg-white">
+                        <option value="low">مكافآت رقمية (Low)</option>
+                        <option value="mid">اشتراكات منصات (Mid)</option>
+                        <option value="high">هدايا ملموسة (High)</option>
+                        <option value="vip">VIP</option>
+                    </select>
+                    <select id="reward-delivery" class="p-2 border rounded bg-white">
+                        <option value="auto">تلقائي (شارة بروفايل)</option>
+                        <option value="voucher">كود خصم (Voucher)</option>
+                        <option value="shipping">شحن بالبريد</option>
+                        <option value="invitation">دعوة فعالية</option>
+                    </select>
+                    <input type="file" id="reward-image" accept="image/*" class="p-1.5 border rounded bg-gray-50 sm:col-span-2">
+                    <textarea id="reward-description" placeholder="وصف مختصر للهدية" rows="2" class="p-2 border rounded sm:col-span-2"></textarea>
+                    <button type="submit" class="sm:col-span-2 bg-amber-700 hover:bg-amber-800 text-white font-bold py-2.5 rounded transition">إضافة الهدية للكتالوج</button>
+                </form>
+
+                <div id="admin-rewards-list" class="space-y-2 pt-3 border-t"></div>
+
+                <div class="pt-3 border-t">
+                    <h3 class="font-bold text-sm text-slate-800 mb-2">كل طلبات الاستبدال</h3>
+                    <div id="admin-redemptions-list" class="space-y-2 max-h-96 overflow-y-auto"></div>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- استدعاء ملف الإعدادات ثم ملف السكريبت الرئيسي -->
+    <!-- Article Review Workspace -->
+    <div id="articleReviewView" class="hidden fixed inset-0 bg-slate-50 z-[75] overflow-y-auto font-body">
+        <div class="bg-slate-900 border-b border-amber-600/30 sticky top-0 z-10">
+            <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+                <button onclick="closeArticleReviewView()" class="flex items-center gap-2 text-slate-200 hover:text-amber-500 transition text-sm font-semibold py-2">
+                    <span>→</span> <span>رجوع لقائمة المراجعة</span>
+                </button>
+                <div class="cursor-pointer select-none logo-block text-left" onclick="goHome()">
+                    <h2 class="font-logo text-4xl font-bold tracking-wide text-amber-500 leading-none">ورقة</h2>
+                    <p class="text-xs text-slate-400 font-body logo-tagline">من صفحات الأدب</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <div class="lg:col-span-1 bg-white border border-slate-200 rounded-xl p-4 flex flex-col h-[70vh] order-2 lg:order-1">
+                <h3 class="font-heading font-bold text-slate-900 border-b pb-2 mb-2">محادثة المراجعة</h3>
+                <div id="review-chat-list" class="flex-grow overflow-y-auto space-y-2 text-xs mb-2"></div>
+                <div class="pt-2 border-t space-y-2">
+                    <textarea id="review-chat-input" rows="2" placeholder="اكتب رسالة..." class="w-full p-2 border rounded outline-none text-xs article-body"></textarea>
+                    <button onclick="sendReviewChatMessage()" class="w-full bg-slate-900 text-white font-bold py-1.5 rounded hover:bg-slate-800 transition text-xs">إرسال</button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white border border-slate-200 rounded-xl p-6 space-y-4 order-1 lg:order-2">
+                <div class="flex justify-between items-start gap-2">
+                    <h2 id="review-article-title-display" class="font-heading text-2xl font-bold text-slate-900"></h2>
+                    <span id="review-article-status" class="px-2 py-0.5 rounded-full text-[10px] font-bold text-white whitespace-nowrap"></span>
+                </div>
+                <div id="review-article-tags" class="flex flex-wrap gap-1"></div>
+                <p id="review-article-meta" class="text-slate-400 text-xs"></p>
+
+                <p id="review-article-body-display" class="article-body text-sm leading-loose text-slate-700 whitespace-pre-line"></p>
+
+                <div id="review-revision-form" class="hidden space-y-3 bg-slate-50 border rounded-lg p-4">
+                    <p class="text-xs font-bold text-amber-700">جهة المراجعة طلبت تعديلات، حدّث مقالك وأعد إرساله:</p>
+                    <input type="text" id="review-edit-title" class="w-full p-2 border rounded text-sm">
+                    <textarea id="review-edit-body" rows="6" class="article-body w-full p-2 border rounded text-sm"></textarea>
+                    <button onclick="authorResubmitArticle()" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 rounded transition text-sm">إعادة الإرسال للمراجعة</button>
+                </div>
+
+                <div id="review-audio-section" class="hidden pt-3 border-t space-y-2">
+                    <label class="block text-xs font-semibold text-slate-700">الملف الصوتي (لجهات المراجعة فقط):</label>
+                    <div id="review-audio-player-wrap"></div>
+                    <input type="file" id="review-audio-input" accept="audio/*" onchange="reviewUploadAudio(this)" class="w-full text-xs p-1.5 border rounded bg-gray-50 cursor-pointer">
+                </div>
+
+                <div id="review-decision-buttons" class="hidden pt-4 border-t space-y-3">
+                    <button onclick="reviewPublishArticle()" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2.5 rounded transition text-sm">نشر المقال</button>
+                    <div class="space-y-1">
+                        <textarea id="review-revision-note" rows="2" placeholder="اكتب التعديلات المطلوبة (تتبعت للكاتب في المحادثة)..." class="w-full p-2 border rounded text-xs article-body"></textarea>
+                        <button onclick="reviewRequestRevisionArticle()" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded transition text-sm">إعادة المقال للمراجعة (يحتاج تعديل)</button>
+                    </div>
+                    <div class="space-y-1">
+                        <textarea id="review-block-reason" rows="2" placeholder="سبب حظر النشر (مخالفة سياسة النشر)..." class="w-full p-2 border rounded text-xs article-body"></textarea>
+                        <button onclick="reviewBlockArticle()" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2.5 rounded transition text-sm">حظر النشر</button>
+                    </div>
+                </div>
+
+                <!-- إدارة المقال بعد النشر: تعديل / إخفاء / حذف نهائي (جهات المراجعة فقط) -->
+                <div id="published-article-management" class="hidden pt-4 border-t space-y-3">
+                    <h3 class="font-heading font-bold text-slate-900">إدارة المقال المنشور</h3>
+
+                    <button type="button" onclick="togglePublishedEditForm()" class="w-full bg-slate-700 hover:bg-slate-800 text-white font-bold py-2.5 rounded transition text-sm">تعديل المقال</button>
+
+                    <form id="published-edit-form" onsubmit="reviewEditPublishedArticle(event)" class="hidden space-y-2 bg-slate-50 border rounded-lg p-3">
+                        <input type="text" id="published-edit-title" placeholder="عنوان المقال" class="w-full p-2 border rounded text-sm">
+                        <textarea id="published-edit-body" rows="6" class="article-body w-full p-2 border rounded text-sm"></textarea>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-500 mb-1">مستوى الوصول</label>
+                            <select id="published-edit-access-level" class="w-full p-2 border rounded text-sm bg-white">
+                                <option value="public">عام</option>
+                                <option value="registered">حصري للمسجلين</option>
+                                <option value="golden">🏆 محتوى ذهبي</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold text-slate-500 mb-1">تغيير صورة الغلاف (اختياري)</label>
+                            <input type="file" id="published-edit-cover" accept="image/*" class="w-full p-1.5 border rounded text-xs bg-white cursor-pointer">
+                        </div>
+                        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2 rounded transition text-sm">حفظ التعديلات</button>
+                    </form>
+
+                    <button type="button" onclick="reviewToggleVisibility()" id="toggle-visibility-btn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded transition text-sm">إخفاء المقال عن القراء</button>
+
+                    <button type="button" onclick="reviewDeletePublishedArticle()" class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 rounded transition text-sm">حذف المقال نهائيًا</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-amber-600/30 py-6 mt-8 font-body">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center gap-3">
+            <div id="footer-social-links" class="flex items-center gap-4"></div>
+            <p class="text-[11px] text-slate-500">© مجلة ورقة - من صفحات الأدب</p>
+        </div>
+    </footer>
+
     <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
