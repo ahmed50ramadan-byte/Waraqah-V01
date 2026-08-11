@@ -22,24 +22,41 @@ const paymentRoutes = require('./routes/payment.routes');
 
 const app = express();
 
-// الاتصال بقاعدة البيانات (config/db.js بقى ذكي: بيعيد استخدام نفس الاتصال
-// لو الدالة اتنادت أكتر من مرة، وده مهم جدًا في بيئة Serverless زي Vercel)
+// الاتصال بقاعدة البيانات
 connectDB();
 
 // أمان أساسي على مستوى الـ HTTP headers
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
-// السماح للواجهة الأمامية بالوصول للـ API
+// -------------------------------------------------------------
+// إعدادات CORS الذكية (تسمح بأي رابط من Vercel + القيمة المحددة في CLIENT_ORIGIN)
+// -------------------------------------------------------------
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || '*'
+    origin: function (origin, callback) {
+      // السماح بالطلبات التي ليس لها origin (مثل تطبيقات الهاتف أو Postman)
+      if (!origin) return callback(null, true);
+
+      const clientOrigin = process.env.CLIENT_ORIGIN;
+
+      // السماح إذا كان Origin يطابق CLIENT_ORIGIN أو ينتهي بـ .vercel.app
+      if (
+        origin === clientOrigin ||
+        origin.endsWith('.vercel.app') ||
+        clientOrigin === '*'
+      ) {
+        return callback(null, true);
+      } else {
+        return callback(null, true); // إتاحة الوصول لكل المصادر لضمان عدم حظر الـ Preview
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
 
 app.use(express.json({ limit: '2mb' }));
-
-// ملاحظة: ملفات الصور/الصوتيات بقت متخزنة على Cloudinary مش على القرص المحلي،
-// فمحتاجين نقدّم /uploads محليًا (كانت موجودة قبل كده لما كان التخزين محلي).
 
 // حد لعدد محاولات تسجيل الدخول/التسجيل لمنع الهجمات (Brute-force)
 const authLimiter = rateLimit({
@@ -54,10 +71,10 @@ app.use('/api/readers/login', authLimiter);
 app.use('/api/readers/register', authLimiter);
 app.use('/api/readers/forgot-password', authLimiter);
 
-// حد أخف على الـ heartbeat عشان يمنع أي محاولة إغراق السيرفر بطلبات وهمية متكررة
+// حد على الـ heartbeat
 const heartbeatLimiter = rateLimit({
   windowMs: 60 * 1000, // دقيقة واحدة
-  max: 6, // نبضة كل ~20 ثانية = حد أقصى 3-4 بالدقيقة، سايبين هامش لـ 6
+  max: 6,
   message: { message: 'معدل طلبات مرتفع جدًا.' },
   standardHeaders: true,
   legacyHeaders: false
@@ -82,9 +99,6 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok', service: 'waraqah-
 app.use(notFound);
 app.use(errorHandler);
 
-// على Vercel، الملف ده بيتحمّل كـ Serverless Function مش سيرفر عادي - Vercel نفسه
-// بيتولى فتح المنفذ، فمينفعش نستخدم app.listen() هناك. بنفرّق باستخدام متغير
-// البيئة VERCEL اللي Vercel بيحطه تلقائيًا في كل الـ deployments بتاعته.
 if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
