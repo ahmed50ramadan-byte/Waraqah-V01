@@ -740,14 +740,18 @@ function toggleMobileMainNav() {
 }
 
 function goHome() {
-    document.getElementById('categoryFullScreenView').classList.add('hidden');
-    document.getElementById('articlePublicView').classList.add('hidden');
-    document.getElementById('articleReviewView').classList.add('hidden');
+    // إضافة علامة الاستفام لمنع توقف الكود لو العنصر غير موجود
+    document.getElementById('categoryFullScreenView')?.classList.add('hidden');
+    document.getElementById('articlePublicView')?.classList.add('hidden');
+    document.getElementById('articleReviewView')?.classList.add('hidden');
+    
     document.body.style.overflow = '';
-    document.getElementById('main-nav-list').classList.remove('mobile-open');
+    
+    document.getElementById('main-nav-list')?.classList.remove('mobile-open');
     document.querySelectorAll('.main-nav-item').forEach(el => {
         el.classList.remove('active'); el.classList.remove('mobile-expanded');
     });
+    
     window.scrollTo(0, 0);
     renderHomeFeed();
 }
